@@ -1,20 +1,31 @@
 /* ===== YOUR CSS GOES HERE ===== */
  /* ===== START WITH GLOBAL STYLES THEN USE MEDIA QUERIES FOR LAYOUT ADJUSTMENTS ===== */
 
+ *{
+    box-sizing: border-box;
+  }
+
 :root {
     --blue: #0047AB;
+    --green: #C4D4A3;
+    --background:#F4F4F4;
+    --title-font: 'Space Grotesk', sans-serif;
+    --body-font: 'Noticia Text', serif;  
 }
 
 body {
-    background-color: #FFFDD0;
-    font-family: 'Noticia Text', serif;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: var(--title-font);
+    font-family: var(--body-font); 
+    background: var(--background);
+    display: flex;
+    flex-direction: column;
+    margin: 0;
 }
 
-.nav-bar {
+header.nav-bar {
     height: 100px;
     width:100%;
-    background-color: #0C6043;
+    background-color: var(--green);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: space-between;
@@ -25,8 +36,8 @@ body {
     margin: 0;
     padding-left: 10px; 
     font-size: 50px;
-    font-family: 'Space Grotesk', sans-serif;
-    color: #FFFDD0;
+    font-family: var(--title-font);
+    color: var(--background);
 }
 
 .nav-bar ul {
@@ -44,7 +55,7 @@ body {
 
 .nav-bar a {
     text-decoration: none;
-    color: #FFFDD0;
+    color: var(--background);
     font-weight: 500;
     font-size: 20px;
     border: 1px solid;
@@ -53,126 +64,281 @@ body {
 }
 
 .nav-bar a:hover {
-    background-color: #0047AB;
     background-color: var(--blue);
 }
 
-.text-container {
-    max-width: 800px;
-        margin: 0 auto;
-        padding: 20px;
-        font-size: 16px;
-        line-height: 1.5;
+#water-bottle {
+    position: absolute;
+  }
+
+main {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    margin-top: 100px;
 }
 
-#water-bottle {
-    padding-top: 20px;
-    padding-left: 20px;
-  }
-  
-  #water-bottle img {
-    width: 50px;
-  }
-  
-  
-
+.timeline {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.5;
+    flex: 1;
+    align-items: center;
+    line-break: auto;
+    padding: 50px;
+    text-align: center;
+}
+   
 .container {
     max-width: 800px;
     margin: 0 auto;
     padding: 50px;
-    background-color: #FFFDD0;
+    background-color:var(--background);
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 h1.opener {
-    color: #0047AB;
-    font-family: 'Space Grotesk', sans-serif; 
+    color: var(--blue);
+    font-family: var(--title-font); 
     font-size: 50px;
     text-align: center;
-    margin: 50px;
+    margin-top: 0;
 }
 
-.map-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  
-  #map {
-    flex: 1 1 60%;
-    height: 500px;
-    width: 50%;
-    margin-right: 20px;
-  }
-  
+ul.journey  {
+    color: var(--background);
+    font-family: var(--body-font); 
+    font-size: 20px; 
+    padding: 50px 0;
+    text-align: center;
+    list-style-type: none;
+}
+
+ul.journey  li {
+    list-style-type: none;
+    position: relative;
+    width: 6px;
+    margin: 0 auto;
+    padding-top: 50px;
+}
+
+ul.journey li::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%; 
+    background: inherit; 
+    z-index: 1;
+}
+
+ul.journey li::before {
+    content: "";
+    position: absolute; 
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%; 
+    background-color: var(--blue);
+}
+
+ul.journey li div {
+    position: relative;
+    bottom: 0;
+    width: 400px;
+    padding: 15px;
+    background: var(--green);
+    border-radius: 10px;
+}
+
+ul.journey li div::before {
+    content: "";
+    position: absolute; 
+    bottom: 7px; 
+    width: 0; 
+    height: 0; 
+    border-style: solid;
+}
+
+ul.journey li:nth-child(odd) div {
+    left: 45px; 
+}
+
+ul.journey li:nth-child(odd) div::before {
+    left: -15px; 
+    border-width: 8px 16px 8px 0;
+    border-color: transparent transparent var(--blue) transparent; 
+}
+
+ul.journey li:nth-child(even) div {
+    left: -439px; 
+}
+
+ul.journey li:nth-child(even) div::before {
+    right: -15px; 
+    border-width: 8px 0 8px 16px; 
+    border-color: transparent transparent var(--blue) transparent;
+}
+
+ul.journey li::after {
+    transition: var(--green) 0.5s ease-in-out;
+}
+
+ul.journey li.in-view::after {
+    background: var(--blue);
+}
+
+ul.journey li div {
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.5s ease-in-out; 
+}
+
+ul.journey li:nth-child(odd) div {
+    transform: translate3d(-200px, 0, 0); 
+}
+
+ul.journey li:nth-child(even) div {
+    transform: translate3d(-200px, 0, 0); 
+}
+
+ul.journey li.in-view div {
+    transform: none; 
+    visibility: visible; 
+    opacity: 1; 
+}
+
+@media screen and (max-width: 900px) {
+    ul.journey li div {
+        width: 250px; 
+    }
+    ul.journey li:nth-child(even) div {
+        left: -289px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    ul.journey li {
+        margin-left: 20px; 
+    }
+    ul.journey li div {
+        width: calc(100vw - 91px);
+    }
+    ul.journey li:nth-child(even) div {
+        left: 45px; 
+    }
+    ul.journey li:nth-child(even) div::before {
+        left: -15px; 
+        border-width: 8px 16px 8px 0;
+        border-color: var(--blue);
+    }
+}
+
+.journey-infinite ul li::after {
+    animation: scaleAnimation 2s infinite;
+}
+
+@keyframes scaleAnimation { 
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.25); 
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
 h1.save {
-    color: #0047AB;
-    font-family: 'Space Grotesk', sans-serif; 
+    color: var(--blue);
+    font-family: var(--title-font); 
     font-size: 50px;
     text-align: center;
+    margin: 0 auto; 
+    max-width: 800px;
 }
 
-h1.map {
-    color: #0047AB;
-    font-family: 'Space Grotesk', sans-serif; 
-    font-size: 50px;
-    text-align: center;
-}
+
 h2 {
-    color: #0047AB;
-    font-family: 'Space Grotesk', sans-serif; 
+    color: var(--blue);
+    font-family: var(--title-font); 
     font-size: 50px;
     text-align: center;
 }
 
 p {
-    color: #0047AB;
+    color: var(--blue);
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
-    font-family: 'Noticia Text', serif; 
+    font-family: var(--body-font); 
+    text-align: center; 
 }
 
-ul.journey {
-    color: #0047AB;
-    font-family: 'Noticia Text', serif; 
-    font-size: 20px; 
-}
 table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 50px;
-    border: 5px solid #0C6043;
+    border: 5px solid var(--green);
 }
 th, td {
     padding: 10px;
     text-align: center;
-    border: 5px solid #0C6043;
-    font-family: 'Space Grotesk', sans-serif;
-    color: #0047AB;
+    border: 5px solid var(--green);
+    font-family: var(--title-font);
+    color: var(--blue);
 }
 th {
-    background-color: #FFFDD0;
-    color:  #0047AB;
+    background-color: var(--background);
+    color:  var(--blue);
     font-size: 24px;
     font-weight: normal;
-    border: 5px solid #0C6043;
-    font-family: 'Space Grotesk', sans-serif;
+    border: 5px solid var(--green);
+    font-family: var(--title-font);
 }
 tr:nth-child(even) {
-    background-color:  #FFFDD0;
-    border: 5px solid #0C6043;
+    background-color: var(--background);
+    border: 5px solid var(--green);
 }
 
+.map-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+#map {
+    flex: 1 1 60%;
+    height: 500px;
+    width: 50%;
+    margin-right: 20px;
+  }
+
+h1.map {
+    color: var(--blue);
+    font-family: var(--title-font); 
+    font-size: 50px;
+    text-align: center;
+}
+  
 .places {
-    color: #0047AB;
-    font-family: 'Noticia Text', serif; 
+    color: var(--blue);
+    font-family: var(--body-font); 
     font-size: 20px; 
     flex: 1 1 40%;
     list-style-type: none;
     padding: 0;
-    margin: 0; 
+    margin-top: 0; 
 }
+
 .places li {
     margin-bottom: 10px;
   }
