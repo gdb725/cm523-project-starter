@@ -20,31 +20,31 @@ interactive.html
 <link href="https://fonts.googleapis.com/css2?family=Noticia+Text&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
     <!-- LINK TO EXTERNAL JS LIBRARIES HERE -->
 <div id="gallery">
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
-  <div class="tile">
+  <div class="card">
     <img src="" />
   </div>
- <div class="tile">
+ <div class="card">
     <img src="" />
   </div>
 </div>
