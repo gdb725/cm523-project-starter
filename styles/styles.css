@@ -366,3 +366,106 @@ h1.map {
 .places li {
     margin-bottom: 10px;
   }
+  
+  #gallery {
+    height: 140vmax;
+    width: 100vmax;  
+    position: absolute;
+  }
+  
+  .card {
+    border-radius: 1vmax;
+    position: absolute;
+    transition: transform 800ms ease;
+  }
+  
+  .card:hover {
+    transform: scale(1.1);
+  }
+  
+  .card:hover > img {
+    opacity: 1;
+    transform: scale(1.01);
+  }
+  
+  .card > img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 800ms ease,
+      transform 800ms ease;
+  }
+  
+  .card:nth-child(1) {
+    background-color: var(--blue);
+    height: 14%;
+    width: 20%;
+    left: 5%;
+    top: 5%;
+  }
+  
+  .card:nth-child(2) {
+    background-color: var(--green);
+    height: 24%;
+    width: 14%;
+    left: 42%;
+    top: 12%;
+  }
+  
+  .card:nth-child(3) {
+    background-color: var(--accent-color);
+    height: 18%;
+    width: 16%;
+    left: 12%;
+    top: 34%;
+  }
+  
+  .card:nth-child(4) {
+    background-color: var(--blue);
+    height: 14%;
+    width: 12%;
+    left: 45%;
+    top: 48%;
+  }
+  
+  .card:nth-child(5) {
+    background-color: var(--green);
+    height: 16%;
+    width: 32%;
+    left: 8%;
+    top: 70%;
+  }
+  
+  .card:nth-child(6) {
+    background-color: var(--accent-color);
+    height: 24%;
+    width: 24%;
+    left: 68%;
+    top: 8%;
+  }
+  
+  .card:nth-child(7) {
+    background-color: var(--blue);
+    height: 16%;
+    width: 20%;
+    left: 50%;
+    top: 74%;
+  }
+  
+  .card:nth-child(8) {
+    background-color: var(--green);
+    height: 24%;
+    width: 18%;
+    left: 72%;
+    top: 42%;
+  }
+  
+  .card:nth-child(9) {
+    background-color: var(--accent-color);
+    height: 10%;
+    width: 8%;
+    left: 84%;
+    top: 84%;
+  }
