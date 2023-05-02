@@ -69,6 +69,16 @@ header.nav-bar {
     background-color: var(--blue);
 }
 
+@media screen and (max-width:600px) {
+    .nav-bar {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 0;
+        height: 70px;
+        align-items: center;
+    }
+}
+
 main {
     display: flex;
     flex-direction: row;
@@ -76,7 +86,6 @@ main {
 }
 
 .scroll {
-    white-space: nowrap; 
     overflow: hidden; 
     width: 0%;
     border-right: 2px solid var(--blue);
@@ -85,7 +94,7 @@ main {
 
 @keyframes scroll {
     0% { width: 0%;}
-    100% { width: 450%; }
+    100% { width: 300%; }
 }
 
 h1.opener {
@@ -196,6 +205,13 @@ ul.journey li:nth-child(odd) div {
     left: 45px; 
 }
 
+ul.journey li:nth-child(odd) img {
+    float: right;
+    clear: both;
+    margin-top: -105px;
+    margin-right: 45px;
+}
+
 ul.journey li:nth-child(odd) div::before {
     left: -15px; 
     border-width: 8px 16px 8px 16px;
@@ -206,6 +222,12 @@ ul.journey li:nth-child(even) div {
     left: -439px; 
 }
 
+ul.journey li:nth-child(even) img {
+    float: right;
+    clear: both;
+    margin-top: -110px;
+    margin-right: -200px;
+}
 ul.journey li:nth-child(even) div::before {
     right: -15px; 
     border-width: 8px 16px 8px 16px; 
@@ -291,16 +313,14 @@ h1.save {
     max-width: 800px;
 }
 
-
-
-
 p {
     color: var(--blue);
     font-size: 20px;
     line-height: 1.5;
     margin-bottom: 20px;
     font-family: var(--body-font); 
-    text-align: center; 
+    margin-left: auto;
+    margin-right: auto;
 }
 
 table {
@@ -309,13 +329,15 @@ table {
     margin-bottom: 50px;
     border: 5px solid var(--green);
 }
+
 th, td {
     padding: 10px;
-    text-align: center;
+    justify-content: left;
     border: 5px solid var(--green);
-    font-family: var(--title-font);
+    font-family: var(--body-font);
     color: var(--blue);
 }
+
 th {
     background-color: var(--background);
     color:  var(--blue);
@@ -324,9 +346,16 @@ th {
     border: 5px solid var(--green);
     font-family: var(--title-font);
 }
+
 tr:nth-child(even) {
     background-color: var(--background);
     border: 5px solid var(--green);
+}
+
+#about {
+    max-width: 50rem;
+    margin: 0 auto;
+    padding: 50px;
 }
 
 .map-container {
@@ -341,51 +370,56 @@ tr:nth-child(even) {
     width: 50%;
     margin-right: 80px;
     margin-left: 80px;
+    margin-bottom: 40px;
   }
 
-h1.map {
+.map {
     color: var(--blue);
     font-family: var(--title-font); 
     font-size: 50px;
     text-align: center;
 }
-  
-.places {
-    color: var(--blue);
-    font-family: var(--body-font); 
-    font-size: 20px; 
-    flex: 1 1 40%;
-    list-style-type: none;
-    padding: 0;
-    margin: 0; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-}
-
-.places li {
-    margin-bottom: 10px;
-  }
-  
   #gallery {
     height: 140vmax;
     width: 100vmax;  
     position: absolute;
+  }
+
+#instruction {
+    padding-bottom: 0;
+    text-align: center;
+    margin: auto;
+    font-size: 1.2em; 
+    font-family: var(--title-font);
+    color: var(--blue);
+    margin-top: 0;
+    margin-bottom: 30px;
+    max-width: 30%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .card {
     border-radius: 1vmax;
     position: absolute;
     transition: transform 800ms ease;
+    margin-top: 10px;
   }
   
   .card:hover {
     transform: scale(1.1);
   }
   
-  .card:hover > img {
+  .card:hover > img,
+  .card:hover > .caption {
     opacity: 1;
     transform: scale(1.01);
+  }
+
+  .caption {
+    color: var(--blue);
+    font-family: var(--body-font);
+    font-size: 20px; 
   }
   
   .card > img {
@@ -398,36 +432,40 @@ h1.map {
       transform 800ms ease;
   }
   
+.card > .caption {
+opacity: 0;
+}
+
   .card:nth-child(1) {
     background-color: var(--blue);
-    height: 14%;
-    width: 20%;
+    height: 25%;
+    width: 25%;
     left: 5%;
-    top: 5%;
+    top: 2%;
   }
   
   .card:nth-child(2) {
     background-color: var(--green);
     height: 24%;
-    width: 14%;
-    left: 42%;
-    top: 12%;
+    width: 20%;
+    left: 40%;
+    top: 0%;
   }
   
   .card:nth-child(3) {
     background-color: var(--accent-color);
-    height: 18%;
-    width: 16%;
-    left: 12%;
-    top: 34%;
+    height: 27%;
+    width: 20%;
+    left: 8%;
+    top: 45%;
   }
   
   .card:nth-child(4) {
     background-color: var(--blue);
     height: 14%;
-    width: 12%;
-    left: 45%;
-    top: 48%;
+    width: 20%;
+    left: 40%;
+    top: 40%;
   }
   
   .card:nth-child(5) {
@@ -435,7 +473,7 @@ h1.map {
     height: 16%;
     width: 32%;
     left: 8%;
-    top: 70%;
+    top: 95%;
   }
   
   .card:nth-child(6) {
@@ -443,15 +481,15 @@ h1.map {
     height: 24%;
     width: 24%;
     left: 68%;
-    top: 8%;
+    top: 5%;
   }
   
   .card:nth-child(7) {
     background-color: var(--blue);
     height: 16%;
     width: 20%;
-    left: 50%;
-    top: 74%;
+    left: 45%;
+    top: 75%;
   }
   
   .card:nth-child(8) {
@@ -459,13 +497,13 @@ h1.map {
     height: 24%;
     width: 18%;
     left: 72%;
-    top: 42%;
+    top: 55%;
   }
   
   .card:nth-child(9) {
     background-color: var(--accent-color);
     height: 10%;
-    width: 8%;
-    left: 84%;
-    top: 84%;
+    width: 20%;
+    left: 70%;
+    top: 100%;
   }
