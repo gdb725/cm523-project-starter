@@ -358,6 +358,15 @@ tr:nth-child(even) {
     padding: 50px;
 }
 
+#about a { 
+    color: var(--green);
+}
+
+#about a:hover { 
+    cursor: pointer;
+}
+
+
 .map-container {
     display: flex;
     flex-wrap: wrap;
